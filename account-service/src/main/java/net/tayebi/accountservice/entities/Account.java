@@ -24,5 +24,5 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
     private String currency;
-    private double balance;
+    private Double balance;
 }
