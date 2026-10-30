@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.tayebi.accountservice.enums.AccountStatus;
 
+import java.util.UUID;
+
 
 @Entity
 @Data
@@ -17,7 +19,7 @@ import net.tayebi.accountservice.enums.AccountStatus;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long id;
+    private UUID id;
     private String customerReference;
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
