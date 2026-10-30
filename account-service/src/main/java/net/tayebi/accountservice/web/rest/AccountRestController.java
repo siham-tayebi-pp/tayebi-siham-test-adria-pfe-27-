@@ -1,4 +1,4 @@
-package net.tayebi.accountservice.web;
+package net.tayebi.accountservice.web.rest;
 
 import net.tayebi.accountservice.entities.Account;
 import net.tayebi.accountservice.enums.AccountStatus;
@@ -27,6 +27,14 @@ public class AccountRestController {
     }
     @PutMapping("/{id}/status") public Account status(@PathVariable UUID id, @RequestParam AccountStatus status) {
         return service.updateStatus(id, status);
+    }
+    @PutMapping("/{id}")
+    public Account update(@PathVariable UUID id, @RequestBody Account account) {
+        return service.update(id, account);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable UUID id) {
+        service.delete(id);
     }
     public record CreateAccountRequest(String customerReference, String currency, double balance) {}
     public record BalanceRequest(double balance) {}
